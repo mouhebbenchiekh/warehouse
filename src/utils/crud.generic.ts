@@ -24,6 +24,18 @@ export function generateCrudService(Entity: any): any {
       return this.entityRepository.save(updateEntity);
     }
 
+    async add(id: number, quantity: number): Promise<any> {
+      const product = await this.entityRepository.findOne(id);
+      if (product.count == 0) {
+        console.log('message out of stock');
+      }
+      const updateEntity = await this.entityRepository.preload({
+        ...product,
+        count: product.count + quantity,
+      });
+      return this.entityRepository.save(updateEntity);
+    }
+
     remove(id: number) {
       return this.entityRepository.delete(id);
     }
