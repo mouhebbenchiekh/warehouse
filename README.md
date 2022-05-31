@@ -1,6 +1,6 @@
 ## Architecture
 
-<img src="archPhoto2.png">
+<center><img src="archPhoto2.png"></center>
 
 In this repository we will implement the warehouse management microservice using NestJS framework, MySQL database and Redis to read and sent events to the event stream.  
 Operations supported by this microservice are products creation, removing and updating.
